@@ -1,0 +1,42 @@
+<html>
+<head>
+<script type="text/javascript">
+//定义跳马函数
+function move_horse(a,b)
+{
+  if(a == a0 && b == b0)
+  {
+    return (a+1)*10+(b+1);
+  }
+  for(var n=0;n<xstep.length;n++)
+  {
+    a+=xstep[n];
+	b+=ystep[n];
+	if(a>=0 && a<row && b>=0 && b<column)
+	{
+	  move_horse(a,b);
+	}
+  }
+}
+</script>
+</head>
+
+<body>
+<script type="text/javascript">
+var a0=3,b0=4;
+var row=4,column=5;  //定义棋盘点的行列
+//定义步长
+var xstep = [-2,-2,-1,-1, 1, 1, 2, 2];
+var ystep = [-1, 1,-2, 2,-2, 2,-1, 1];
+for(var x=0;x>=0 && x<row;x++)
+{
+ for(var y=0;y>=0 && y<column;y++)
+ {
+   document.write(move_horse(x,y)+ "<br/>");
+ }
+}
+</script>
+
+
+</body>
+</html>
